@@ -1,0 +1,70 @@
+
+<style>
+  
+    nav {
+        max-width: 100%;
+        margin: 0 auto;
+      padding: 3px;
+      margin: 3px;
+       
+      
+    }
+    
+    
+    nav ul {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    nav li {
+        list-style: none;
+    }
+    
+    nav a {
+        display: block;
+        padding: 10px;
+        color: #333;
+        text-decoration: none;
+    }
+    
+    nav a:hover {
+        background-color: #eee;
+    }
+    
+    .responsive-button {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+    }
+    
+    /* Media query for responsive design */
+    @media (max-width: 768px) {
+      .responsive-button {
+        padding: 10px 20px;
+        font-size: 14px;
+      }
+    }
+    </style>
+    
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/">About</a></li>
+                
+        <li><a href="/">Contact</a></li>
+        
+        {% if request.user.is_authenticated %}
+        <li><a class="responsive-button" href="{% url 'login' %}">Logout</a></li>
+        {% else %}
+        <li><a class="responsive-button" href="#">Login</a></li>
+        {% endif %}  
+      </ul>
+    </nav>
